@@ -26,7 +26,7 @@ public class FitnessTechniqueForEachLetter implements FitnessTechnique<ImtGene> 
                 correctCharactersCounter++;
             }
         }
-        return Math.pow(correctCharactersCounter, 5) / dna.getGene().getTargetPhrase().length();
+        return Math.pow(correctCharactersCounter, 15) / dna.getGene().getTargetPhrase().length();
     }
 
     @Override
