@@ -11,7 +11,7 @@
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+
 *.iws
 *.iml
 *.ipr
@@ -22,4 +22,4 @@
 /nbbuild/
 /dist/
 /nbdist/
-/.nb-gradle
+/.nb-gradleg
