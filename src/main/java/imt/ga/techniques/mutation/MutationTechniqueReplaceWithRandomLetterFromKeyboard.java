@@ -1,6 +1,5 @@
 package imt.ga.techniques.mutation;
 
-import com.algorithms.ai.domain.Dna;
 import com.algorithms.ai.techniques.MutationTechnique;
 import imt.ga.domain.ImtGene;
 import imt.ga.domain.ImtKeyboard;
@@ -22,12 +21,12 @@ public class MutationTechniqueReplaceWithRandomLetterFromKeyboard implements Mut
     }
 
     @Override
-    public void mutate(Dna<ImtGene> dnaToMutate) {
-        String currentPhrase = dnaToMutate.getGene().getOwnPhrase();
+    public void mutate(ImtGene gene) {
+        String currentPhrase = gene.getOwnPhrase();
         StringBuilder mutatedPhraseBuilder = new StringBuilder(currentPhrase);
         int chosenPosition = new Random().nextInt(currentPhrase.length());
         mutatedPhraseBuilder.setCharAt(chosenPosition, ImtKeyboard.getRandomCharacterFromKeyboard());
-        dnaToMutate.getGene().setOwnPhrase(mutatedPhraseBuilder.toString());
+        gene.setOwnPhrase(mutatedPhraseBuilder.toString());
     }
 
     @Override

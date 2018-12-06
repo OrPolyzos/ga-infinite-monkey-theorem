@@ -1,7 +1,6 @@
 package imt.ga.techniques.crossover;
 
 import com.algorithms.ai.domain.Chromosome;
-import com.algorithms.ai.domain.Dna;
 import com.algorithms.ai.techniques.CrossOverTechnique;
 import imt.ga.domain.ImtGene;
 
@@ -22,9 +21,9 @@ public class CrossOverTechniqueHalfWay implements CrossOverTechnique<ImtGene> {
     @Override
     public Chromosome<ImtGene> crossOver(Chromosome<ImtGene> firstParent, Chromosome<ImtGene> secondParent) {
         StringBuilder newPhraseBuilder = new StringBuilder();
-        String targetPhrase = firstParent.getDna().getGene().getTargetPhrase();
-        String firstParentPhrase = firstParent.getDna().getGene().getOwnPhrase();
-        String secondParentPhrase = secondParent.getDna().getGene().getOwnPhrase();
+        String targetPhrase = firstParent.getGene().getTargetPhrase();
+        String firstParentPhrase = firstParent.getGene().getOwnPhrase();
+        String secondParentPhrase = secondParent.getGene().getOwnPhrase();
         for (int i = 0; i < firstParentPhrase.length(); i++) {
             if (i % 2 == 0) {
                 newPhraseBuilder.append(firstParentPhrase.charAt(i));
@@ -32,7 +31,7 @@ public class CrossOverTechniqueHalfWay implements CrossOverTechnique<ImtGene> {
                 newPhraseBuilder.append(secondParentPhrase.charAt(i));
             }
         }
-        return new Chromosome<>(new Dna<>(new ImtGene(targetPhrase, newPhraseBuilder.toString())));
+        return new Chromosome<>(new ImtGene(targetPhrase, newPhraseBuilder.toString()));
     }
 
     @Override

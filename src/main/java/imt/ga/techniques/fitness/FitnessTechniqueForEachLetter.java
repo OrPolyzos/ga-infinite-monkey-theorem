@@ -1,6 +1,5 @@
 package imt.ga.techniques.fitness;
 
-import com.algorithms.ai.domain.Dna;
 import com.algorithms.ai.techniques.FitnessTechnique;
 import imt.ga.domain.ImtGene;
 
@@ -19,14 +18,15 @@ public class FitnessTechniqueForEachLetter implements FitnessTechnique<ImtGene> 
     }
 
     @Override
-    public double calculateFitness(Dna<ImtGene> dna) {
+    public double calculateFitness(ImtGene gene) {
         int correctCharactersCounter = 0;
-        for (int i = 0; i < dna.getGene().getOwnPhrase().length(); i++) {
-            if (dna.getGene().getOwnPhrase().charAt(i) == dna.getGene().getTargetPhrase().charAt(i)) {
+        for (int i = 0; i < gene.getOwnPhrase().length(); i++) {
+            if (gene.getOwnPhrase().charAt(i) == gene.getTargetPhrase().charAt(i)) {
                 correctCharactersCounter++;
             }
         }
-        return Math.pow(correctCharactersCounter, 15) / dna.getGene().getTargetPhrase().length();
+        //Increase the power for a stronger fitness function for every correct character
+        return Math.pow(correctCharactersCounter, 1) / gene.getTargetPhrase().length();
     }
 
     @Override

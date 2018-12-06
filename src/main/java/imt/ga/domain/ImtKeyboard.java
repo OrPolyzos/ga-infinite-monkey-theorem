@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ImtKeyboard {
 
-    private static final char[] KEYBOARD = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ ,.?:;'-—\n".toCharArray();
+    private static final char[] KEYBOARD = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ ".toCharArray();
 
     public static Character getRandomCharacterFromKeyboard() {
         return KEYBOARD[new Random().nextInt(KEYBOARD.length)];
